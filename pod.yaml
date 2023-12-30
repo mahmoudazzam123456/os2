@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    label-name-1: label-value
+    anther-label: my-app-name
+spec: 
+  containers:
+    - image: myimageproject:alpine
+      name: nginx-container
+      resources:
+        limits:
+          memory: "512Mi"
+          cpu: "1"    

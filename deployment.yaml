@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec: 
+  selector:
+    matchLabels:
+      label-name-1: label-value
+  replicas: 4
+  template:
+    metadata:
+      name: my-deployment
+      labels:
+        label-name-1: label-value
+    spec: 
+      containers:
+        - image: nginx:alpine
+          name: nginx-container
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"    
