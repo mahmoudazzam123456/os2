@@ -5,17 +5,20 @@ metadata:
 spec: 
   selector:
     matchLabels:
-      label-name-1: label-value
-  replicas: 4
+      test: project-test
+  replicas: 3
   template:
     metadata:
-      name: my-deployment
+      name: test-pod
       labels:
-        label-name-1: label-value
+        test: project-test
     spec: 
       containers:
-        - image: nginx:alpine
-          name: nginx-container
+        - image: mahmoudelsayed481/myimageproject
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          name: myimageproject-container
           resources:
             limits:
               memory: "512Mi"

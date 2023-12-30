@@ -1,14 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-first-pod
+  name: test-pod
   labels:
-    label-name-1: label-value
-    anther-label: my-app-name
+    test: project-test
 spec: 
   containers:
-    - image: myimageproject:alpine
-      name: nginx-container
+    - image: mahmoudelsayed481/myimageproject
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
+      name: myimageproject-container
       resources:
         limits:
           memory: "512Mi"
